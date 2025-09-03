@@ -1,0 +1,93 @@
+/* src/styles/Navbar.css */
+
+/* Smooth sticky behavior & subtle elevation */
+.app-navbar {
+  will-change: backdrop-filter, background-color, box-shadow;
+  transition: background-color .2s ease, box-shadow .2s ease;
+}
+
+/* Fallback blur look for browsers without backdrop-filter support */
+@supports not ((-webkit-backdrop-filter: blur(6px)) or (backdrop-filter: blur(6px))) {
+  .app-navbar {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+  }
+}
+
+/* Slight shadow once page is scrolled (optional: enable if you want sticky elevation)
+   Use the 'scrolled' helper class via JS if you want dynamic behavior.
+*/
+.app-navbar.scrolled {
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+
+/* Desktop nav links: underline accent on hover (professional, restrained) */
+.app-navbar a:hover {
+  text-decoration: none;
+}
+
+.app-navbar .active-pill {
+  position: relative;
+}
+
+.app-navbar .active-pill::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 6px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  opacity: 0.35; /* soft accent */
+}
+
+/* Mobile panel: slide down animation */
+@keyframes navbarSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app-navbar .mobile-panel {
+  animation: navbarSlideDown 160ms ease-out both;
+}
+
+/* Accessible focus ring refinement for buttons/inputs in the navbar */
+.app-navbar :where(button, [type="button"], [type="submit"], a, input) {
+  outline: none;
+}
+
+.app-navbar :where(button, [type="button"], [type="submit"], a, input):focus-visible {
+  box-shadow: 0 0 0 4px rgba(59,130,246,.25); /* blue-500/25 */
+  border-color: rgba(59,130,246,1);
+}
+
+/* Compact dropdown / panel menu items (if you add a user menu later) */
+.app-navbar .menu-item {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem .75rem;
+  font-size: .875rem;
+  color: #111827;
+  border-radius: .5rem;
+}
+
+.app-navbar .menu-item:hover {
+  background: #f3f4f6; /* gray-100 */
+}
+
+/* Hide scrollbar for mobile panel if it overflows a bit */
+.app-navbar .mobile-panel {
+  -ms-overflow-style: none;    /* IE and Edge */
+  scrollbar-width: none;       /* Firefox */
+}
+
+.app-navbar .mobile-panel::-webkit-scrollbar {
+  display: none;               /* Chrome/Safari */
+}
