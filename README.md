@@ -1,3 +1,97 @@
+# Local Activity Booking Platform  
+
+A **React-based MVP** for discovering, booking, and managing local activities — focused on local experiences.  
+
+## ✨ Features  
+
+- **Home**: landing page with background image and navigation.  
+- **Search**:  
+  - Keyword query  
+  - Category filters  
+  - Price sliders + numeric inputs (commit on blur/Enter)  
+  - Sorting (relevance, price, name)  
+  - Deduplication of activities  
+- **Activity Detail**:  
+  - Activity info with image + rating stars  
+ 
+- **Booking**: booking flow for activities.  
+- **Supplier Dashboard**:  
+  - Controlled form with validation (name, category, price, rating, imageUrl) (Rating just to show (MVP)) 
+  - Adds activity once (idempotent dedupe)  
+  - Activities grid with images + tiny star ratings  
+  - Calendar highlighting bookings  
+  - Payout summary  
+  - Utility: clear local storage (reset mock data)  MVP
+- **Navbar**:  
+  - Responsive (desktop + mobile menu)  
+  - Brand logo (SafeImg with local `logo.svg`)  
+  - Quick search  
+  - Login dropdown (Sign In / Sign Up)  Not Implemented (MVP)
+  - Dark/light mode toggle  
+
+## 🛠️ Tech Stack  
+
+- **Frontend**: React, React Router, Context  
+- **Styling**:  Bootstrap (Navbar, dropdowns, utilities)  
+- **Icons**: Bootstrap Icons  
+- **Mock APIs**:  
+  - `activityService.js`: activities, bookings, payouts (with picsum fallbacks)  
+  - `reviewService.js`: reviews with get/add + seeding  
+- **Utilities**:  
+  - `SafeImg` (with fallback)  
+  - `Stars` (tiny whole-star display only)  
+
+## 🚀 Getting Started  
+
+### 1. Clone the repo  
+```bash
+git clone https://github.com/your-username/local-activity-booking-platform.git
+cd local-activity-booking-platform
+```
+
+### 2. Install dependencies  
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Start the dev server  
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Visit `http://localhost:3000` (or your Vite port).  
+
+
+
+## 🧩 Mock Data  
+
+- Activities, bookings, and payouts are stored in memory (`activityService.js`).  
+- Reviews are stored in memory (`reviewService.js`).  
+- Local Storage is used to persist across reloads.  
+- Use the **Clear Local Storage** button on Supplier Dashboard to reset.  
+
+## 🎨 UI Preferences  
+
+- Tiny star icons (no half-stars).  
+- Minimal numeric labels (only where needed).  
+- Responsive, clean layout with Tailwind utility classes + Bootstrap navbar.  
+
+## 🔮 Roadmap  
+
+- [ ] Map preview in ActivityDetail (Leaflet / OSM)  
+- [ ] Promo codes in Booking (mock discounts + payout impact)  
+- [ ] Q&A section (supplier answers user questions)  
+- [ ] Real backend API integration  
+
+---
+
+📌 *This MVP is for prototyping and demonstration purposes — not production-ready.*  
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
